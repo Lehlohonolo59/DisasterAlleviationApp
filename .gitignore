@@ -1,0 +1,8 @@
+# Build folders
+/[Bb]in/
+/[Oo]bj/
+
+# Visual Studio user settings
+.suo
+.user
+.vs/

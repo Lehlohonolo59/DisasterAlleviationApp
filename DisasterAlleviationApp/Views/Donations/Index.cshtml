@@ -1,0 +1,44 @@
+@model IEnumerable<DisasterAlleviationApp.Models.Donation>
+<!-- Tells this Razor view that it will receive a list (collection) of multiple Donation objects from the controller -->
+@{
+    ViewData["Title"] = "Index"; // Sets the browser tab title
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a> <!-- Generates a hyperlink pointing to the Create action/form -->
+</p>
+
+<table class="table">
+    <!-- HTML table styled with Bootstrap classes -->
+    <thead>
+        <tr>
+            <!-- Html.DisplayNameFor automatically pulls the display names/labels we defined in our Donation model -->
+            <th>@Html.DisplayNameFor(model => model.DonorName)</th>
+            <th>@Html.DisplayNameFor(model => model.DonationType)</th>
+            <th>@Html.DisplayNameFor(model => model.Amount)</th>
+            <th>@Html.DisplayNameFor(model => model.DisasterLocation)</th>
+            <th>@Html.DisplayNameFor(model => model.DonationDate)</th>
+            <th></th> <!-- Empty header column for the Action buttons (Edit/Details/Delete) -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { // Loops through every individual donation record passed from the controller list
+            <tr>
+                <td>@Html.DisplayFor(model => item.DonorName)</td> <!-- Displays the actual value for Donor Name -->
+                <td>@Html.DisplayFor(model => item.DonationType)</td>
+                <td>@Html.DisplayFor(model => item.Amount)</td>
+                <td>@Html.DisplayFor(model => item.DisasterLocation)</td>
+                <td>@Html.DisplayFor(model => item.DonationDate)</td>
+                <td>
+                    <!-- Generates links passing the specific item's ID so the app knows which record to edit, view, or delete -->
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+@model DisasterAlleviationApp.Models.Donation
+<!-- Tells this Razor view that it expects a single Donation model object to populate form fields -->
+@{
+    ViewData["Title"] = "Create"; // Sets the browser tab title for the Create page
+}
+
+<h1>Create</h1>
+<h4>Donation</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- asp-action="Create" automatically targets the Create POST action method inside DonationsController when submitted -->
+        <form asp-action="Create">
+            <!-- Displays any general model-level validation errors at the top of the form -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Input group for Donor Name -->
+            <div class="form-group">
+                <label asp-for="DonorName" class="control-label"></label>
+                <input asp-for="DonorName" class="form-control" />
+                <span asp-validation-for="DonorName" class="text-danger"></span> <!-- Shows validation error message if field requirement is missed -->
+            </div>
+
+            <!-- Input group for Donation Type (e.g., Food, Money) -->
+            <div class="form-group">
+                <label asp-for="DonationType" class="control-label"></label>
+                <input asp-for="DonationType" class="form-control" />
+                <span asp-validation-for="DonationType" class="text-danger"></span>
+            </div>
+
+            <!-- Input group for Amount or Quantity -->
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+
+            <!-- Input group for Disaster Location/Name -->
+            <div class="form-group">
+                <label asp-for="DisasterLocation" class="control-label"></label>
+                <input asp-for="DisasterLocation" class="form-control" />
+                <span asp-validation-for="DisasterLocation" class="text-danger"></span>
+            </div>
+
+            <!-- Input group for Donation Date -->
+            <div class="form-group">
+                <label asp-for="DonationDate" class="control-label"></label>
+                <input asp-for="DonationDate" class="form-control" />
+                <span asp-validation-for="DonationDate" class="text-danger"></span>
+            </div>
+
+            <!-- Submit button that triggers the POST request to save the new record to SSMS -->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <!-- Hyperlink that returns the user back to the Index list page without saving -->
+    <a asp-action="Index">Back to List</a>
+</div>
