@@ -1,5 +1,6 @@
 using DisasterAlleviationApp.Data; // Imports your Data namespace so Program.cs knows about ApplicationDbContext
 using Microsoft.EntityFrameworkCore; // Imports EF Core database extensions
+using DisasterAlleviationApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ builder.Services.AddControllersWithViews();
 // It tells the app: "Use SQL Server, and fetch the connection string named 'DefaultConnection' from appsettings.json"
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register HttpClient and our custom DisasterApiService for dependency injection
+builder.Services.AddHttpClient<DisasterApiService>();
 
 var app = builder.Build();
 
