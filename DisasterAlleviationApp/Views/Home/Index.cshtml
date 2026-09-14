@@ -2,7 +2,90 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Links our custom stylesheet specifically for this home view -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" />
+}
+
+<!-- Razor section to hide the global top navigation bar on this specific page -->
+@section HideNavbar {
+    <style>
+        header nav { display: none !important; }
+        footer { border-top: 1px solid #e2e8f0; margin-top: 3rem; }
+    </style>
+}
+
+<div class="container my-5">
+
+    <!-- Hero Section: Styled with our custom Navy gradient and white/light-blue contrast -->
+    <div class="p-5 mb-5 hero-custom-banner shadow">
+        <div class="container-fluid py-3">
+            <h1 class="display-5 fw-bold">Disaster Alleviation Foundation</h1>
+            <p class="col-md-8 fs-4">
+                Coordinating global relief efforts, tracking essential donations, and providing real-time oversight to support communities affected by natural disasters.
+            </p>
+            <hr class="my-4 border-light opacity-50">
+            <p class="fs-6">Select an option below to manage contributions or log new emergency aid resources.</p>
+
+            <!-- Action Buttons utilizing our custom light blue and white styling -->
+            <a class="btn btn-custom-light-blue btn-lg me-2 px-4 shadow-sm" asp-controller="Donations" asp-action="Index" role="button">
+                Manage Donations
+            </a>
+            <a class="btn btn-custom-outline-light btn-lg px-4" asp-controller="Donations" asp-action="Create" role="button">
+                Log New Donation
+            </a>
+        </div>
+    </div>
+
+    <!-- Dashboard Quick Stats Row: Clean white cards on a light background -->
+    <div class="row text-center mb-5">
+        <div class="col-md-4 mb-3">
+            <div class="card dashboard-card h-100 py-3">
+                <div class="card-body">
+                    <h5 class="card-title text-muted">Active Relief Operations</h5>
+                    <h2 class="display-6 fw-bold text-success">Active</h2>
+                    <p class="card-text small text-muted">Monitoring ongoing disaster zones globally.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card dashboard-card h-100 py-3">
+                <div class="card-body">
+                    <h5 class="card-title text-muted">Donation Categories</h5>
+                    <h2 class="display-6 fw-bold" style="color: #3b82f6;">Food & Supplies</h2>
+                    <p class="card-text small text-muted">Tracking monetary and resource aid.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card dashboard-card h-100 py-3">
+                <div class="card-body">
+                    <h5 class="card-title text-muted">Database Status</h5>
+                    <h2 class="display-6 fw-bold text-primary">Local</h2>
+                    <p class="card-text small text-muted">Connected to SQL Server instance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Real-Time Disaster Feed Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card dashboard-card shadow-sm">
+                <div class="card-header feed-header-navy d-flex justify-content-between align-items-center py-3">
+                    <h5 class="mb-0">Global Natural Disaster Watch</h5>
+                    <span class="badge bg-light text-dark">Live Feed Coming Soon</span>
+                </div>
+                <div class="card-body p-4">
+                    <p class="text-secondary">
+                        This section will integrate a public live feed API to display real-time global seismic events, severe weather alerts, and active disaster zones to help coordinate rapid relief responses.
+                    </p>
+                    <div class="alert alert-primary mb-0 border-0" style="background-color: #e0e8f5; color: #1b2a4a;" role="alert">
+                        Ready to connect your backend services or client-side fetch calls to an external disaster data API!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

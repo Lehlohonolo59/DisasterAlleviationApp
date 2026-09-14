@@ -230,3 +230,5 @@ C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\De
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\DisasterAlleviationApp.pdb
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\DisasterAlleviationApp.genruntimeconfig.cache
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\ref\DisasterAlleviationApp.dll
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\DisasterAlleviationApp.sourcelink.json
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\compressed\kmfy8nqx7l-{0}-9ratw0ynmr-9ratw0ynmr.gz

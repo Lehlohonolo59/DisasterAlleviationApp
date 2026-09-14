@@ -1,0 +1,74 @@
+﻿/* ==========================================
+   Disaster Alleviation Foundation - Home CSS
+   Palette: Navy Blue, Light Blue, & White
+   ========================================== */
+
+/* Page-wide background styling */
+body {
+    background-color: #f4f7f6; /* Soft neutral background off-white */
+    color: #1b2a4a; /* Deep navy text for optimal readability */
+}
+
+/* Custom Hero Banner styling using Navy and Light Blue */
+.hero-custom-banner {
+    background: linear-gradient(135deg, #1b2a4a 0%, #2c4a7c 100%); /* Deep navy gradient */
+    color: #ffffff; /* Clean white text */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(27, 42, 74, 0.1);
+}
+
+    /* Typography highlights inside the banner */
+    .hero-custom-banner h1 {
+        color: #ffffff;
+    }
+
+    .hero-custom-banner p {
+        color: #e0e8f5; /* Light ice-blue secondary text */
+    }
+
+/* Primary Accent Buttons (Light Blue theme) */
+.btn-custom-light-blue {
+    background-color: #3b82f6; /* Vibrant light/sky blue */
+    border-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-custom-light-blue:hover {
+        background-color: #2563eb; /* Deeper blue on hover */
+        border-color: #2563eb;
+        color: #ffffff;
+    }
+
+/* Outline Secondary Buttons */
+.btn-custom-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-custom-outline-light:hover {
+        background-color: #ffffff;
+        color: #1b2a4a;
+    }
+
+/* Dashboard Summary Cards */
+.dashboard-card {
+    background-color: #ffffff; /* Clean white card surface */
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+    .dashboard-card:hover {
+        transform: translateY(-3px); /* Subtle lift effect on hover */
+    }
+
+/* Live Feed Panel Styling */
+.feed-header-navy {
+    background-color: #1b2a4a !important; /* Solid navy header */
+    color: #ffffff;
+}
