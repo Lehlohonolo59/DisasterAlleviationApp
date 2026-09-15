@@ -15,11 +15,22 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DisasterAlleviationApp</a>
+                <!-- Brand Logo and Link directing back to the Home dashboard -->
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <!-- Renders your custom DAF logo from wwwroot/images/logo.png -->
+                    <img src="~/images/DAFlogo-removebg-preview.png" alt="DAF Logo" style="height: 40px; width: auto;" class="me-2" />
+
+                    <!-- Optional text branding alongside the logo -->
+                    <span class="fw-bold" style="color: #1b2a4a; font-size: 1.1rem;">Disaster Alleviation</span>
+                </a>
+
+                <!-- Mobile hamburger toggle button for responsive viewports -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Navigation Links (Home, Privacy, Manage Donations, etc.) -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -28,7 +39,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <!-- Navigation link pointing to our Donations controller Index action -->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Donations" asp-action="Index">Manage Donations</a>
                         </li>

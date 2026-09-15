@@ -1,0 +1,66 @@
+﻿/* ==========================================
+   Disaster Alleviation Foundation - Donations CSS
+   Palette Styling & Table Enhancements
+   ========================================== */
+
+/* Page container wrapper spacing */
+.donations-container {
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+/* Card container for the data table */
+.donations-card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom header bar styling for the table card */
+.donations-header-navy {
+    background: linear-gradient(135deg, #1b2a4a 0%, #2c4a7c 100%);
+    color: #ffffff;
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
+    padding: 1.25rem 1.5rem;
+}
+
+/* Table styling and header polish */
+.custom-table th {
+    background-color: #f8fafc;
+    color: #1b2a4a;
+    font-weight: 600;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 1rem;
+}
+
+.custom-table td {
+    padding: 1rem;
+    vertical-align: middle;
+    color: #334155;
+}
+
+/* Subtle row hover effect */
+.custom-table tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+    .custom-table tbody tr:hover {
+        background-color: #f1f5f9;
+    }
+
+/* Custom button accents */
+.btn-primary-custom {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-primary-custom:hover {
+        background-color: #2563eb;
+        border-color: #2563eb;
+        color: #ffffff;
+    }

@@ -1,44 +1,87 @@
 @model IEnumerable<DisasterAlleviationApp.Models.Donation>
-<!-- Tells this Razor view that it will receive a list (collection) of multiple Donation objects from the controller -->
+
 @{
-    ViewData["Title"] = "Index"; // Sets the browser tab title
+    // Sets the title that appears in the browser tab for this page
+    ViewData["Title"] = "Manage Donations";
 }
 
-<h1>Index</h1>
+<!-- Links our custom stylesheet specifically for the donations module -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/donations.css" />
+}
 
-<p>
-    <a asp-action="Create">Create New</a> <!-- Generates a hyperlink pointing to the Create action/form -->
-</p>
+<div class="container donations-container">
 
-<table class="table">
-    <!-- HTML table styled with Bootstrap classes -->
-    <thead>
-        <tr>
-            <!-- Html.DisplayNameFor automatically pulls the display names/labels we defined in our Donation model -->
-            <th>@Html.DisplayNameFor(model => model.DonorName)</th>
-            <th>@Html.DisplayNameFor(model => model.DonationType)</th>
-            <th>@Html.DisplayNameFor(model => model.Amount)</th>
-            <th>@Html.DisplayNameFor(model => model.DisasterLocation)</th>
-            <th>@Html.DisplayNameFor(model => model.DonationDate)</th>
-            <th></th> <!-- Empty header column for the Action buttons (Edit/Details/Delete) -->
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        { // Loops through every individual donation record passed from the controller list
-            <tr>
-                <td>@Html.DisplayFor(model => item.DonorName)</td> <!-- Displays the actual value for Donor Name -->
-                <td>@Html.DisplayFor(model => item.DonationType)</td>
-                <td>@Html.DisplayFor(model => item.Amount)</td>
-                <td>@Html.DisplayFor(model => item.DisasterLocation)</td>
-                <td>@Html.DisplayFor(model => item.DonationDate)</td>
-                <td>
-                    <!-- Generates links passing the specific item's ID so the app knows which record to edit, view, or delete -->
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <!-- Page Header Section with Title, Description, and Create Button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold" style="color: #1b2a4a;">Manage Donations</h2>
+            <p class="text-muted mb-0">Review, edit, or log new contributions and emergency relief resources.</p>
+        </div>
+        <div>
+            <!-- Button linking to the Create view to log a new donation -->
+            <a asp-action="Create" class="btn btn-primary-custom px-4 shadow-sm">
+                <i class="bi bi-plus-circle">+ Create New Donation</i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Card holding the Data Table -->
+    <div class="card donations-card">
+        <div class="donations-header-navy d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 fw-semibold">Recorded Contributions Inventory</h5>
+            <span class="badge bg-light text-dark">Database Table</span>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table custom-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.DonorName)</th>
+                            <th>@Html.DisplayNameFor(model => model.DonationType)</th>
+                            <th>@Html.DisplayNameFor(model => model.Amount)</th>
+                            <th>@Html.DisplayNameFor(model => model.DisasterLocation)</th>
+                            <th>@Html.DisplayNameFor(model => model.DonationDate)</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fw-semibold text-dark">@Html.DisplayFor(modelItem => item.DonorName)</td>
+                                    <td>
+                                        <span class="badge bg-secondary text-white px-2 py-1">
+                                            @Html.DisplayFor(modelItem => item.DonationType)
+                                        </span>
+                                    </td>
+                                    <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.DisasterLocation)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.DonationDate)</td>
+                                    <td class="text-end">
+                                        <!-- Styled Action Links / Buttons -->
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary me-1">Edit</a>
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary me-1">Details</a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <!-- Fallback message if no records exist in the database yet -->
+                            <tr>
+                                <td colspan="6" class="text-center py-4 text-muted">
+                                    No donation records found. Click "Create New Donation" to add your first entry.
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
