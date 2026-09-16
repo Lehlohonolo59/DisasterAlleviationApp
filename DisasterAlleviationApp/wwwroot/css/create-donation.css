@@ -1,0 +1,46 @@
+﻿/* ==========================================
+   Disaster Alleviation Foundation - Create Donation CSS
+   ========================================== */
+
+.create-container {
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.create-card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.create-header-navy {
+    background: linear-gradient(135deg, #1b2a4a 0%, #2c4a7c 100%);
+    color: #ffffff;
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
+    padding: 1.25rem 1.5rem;
+}
+
+/* Dynamic section containers toggled via JavaScript */
+.conditional-section {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-primary-custom:hover {
+        background-color: #2563eb;
+        border-color: #2563eb;
+    }

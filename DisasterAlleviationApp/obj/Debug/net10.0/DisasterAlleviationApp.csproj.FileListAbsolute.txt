@@ -233,3 +233,5 @@ C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\De
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\DisasterAlleviationApp.sourcelink.json
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\compressed\kmfy8nqx7l-{0}-9ratw0ynmr-9ratw0ynmr.gz
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\compressed\kz4mwlqeii-{0}-48f8hl44ef-48f8hl44ef.gz
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\compressed\t8haudvlku-{0}-zbykoaml7x-zbykoaml7x.gz
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\obj\Debug\net10.0\compressed\fd4wuvd21v-{0}-1tk2ig1n6m-1tk2ig1n6m.gz

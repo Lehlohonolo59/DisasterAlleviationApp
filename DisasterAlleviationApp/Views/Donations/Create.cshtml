@@ -1,64 +1,121 @@
 @model DisasterAlleviationApp.Models.Donation
-<!-- Tells this Razor view that it expects a single Donation model object to populate form fields -->
+
 @{
-    ViewData["Title"] = "Create"; // Sets the browser tab title for the Create page
+    ViewData["Title"] = "Log New Donation";
 }
 
-<h1>Create</h1>
-<h4>Donation</h4>
-<hr />
+<!-- Link our dedicated CSS file -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/create-donation.css" />
+}
 
-<div class="row">
-    <div class="col-md-4">
-        <!-- asp-action="Create" automatically targets the Create POST action method inside DonationsController when submitted -->
-        <form asp-action="Create">
-            <!-- Displays any general model-level validation errors at the top of the form -->
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="container create-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <div class="card create-card shadow-sm">
+                <div class="create-header-navy">
+                    <h4 class="mb-0 fw-semibold">Log Emergency Contribution</h4>
+                    <p class="small text-light mb-0 opacity-75">Record monetary or resource aid for disaster relief tracking.</p>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-            <!-- Input group for Donor Name -->
-            <div class="form-group">
-                <label asp-for="DonorName" class="control-label"></label>
-                <input asp-for="DonorName" class="form-control" />
-                <span asp-validation-for="DonorName" class="text-danger"></span> <!-- Shows validation error message if field requirement is missed -->
+                        <!-- Donor Name -->
+                        <div class="mb-3">
+                            <label asp-for="DonorName" class="form-label fw-semibold">Donor Name / Organization</label>
+                            <input asp-for="DonorName" class="form-control" placeholder="Enter contributor name" />
+                            <span asp-validation-for="DonorName" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Donation Type Dropdown (Triggers JavaScript behavior) -->
+                        <div class="mb-3">
+                            <label asp-for="DonationType" class="form-label fw-semibold">Donation Type</label>
+                            <select asp-for="DonationType" class="form-select" id="donationTypeSelect">
+                                <option value="">-- Select Contribution Type --</option>
+                                <option value="Money">Money (Financial Aid)</option>
+                                <option value="Food">Food Supplies</option>
+                                <option value="Clothes">Clothing & Apparel</option>
+                            </select>
+                            <span asp-validation-for="DonationType" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Amount / Quantity -->
+                        <div class="mb-3">
+                            <label asp-for="Amount" class="form-label fw-semibold">Amount / Quantity Value</label>
+                            <input asp-for="Amount" class="form-control" placeholder="e.g., 5000 or 50 boxes" />
+                            <span asp-validation-for="Amount" class="text-danger small"></span>
+                        </div>
+
+                        <!-- 1. Conditional Monetary Payment Simulation Section (Handled via JS) -->
+                        <div id="monetaryPaymentSection" class="conditional-section" style="display: none;">
+                            <h6 class="text-primary fw-bold mb-2"><i class="bi bi-credit-card"></i> Secure Dummy Payment Simulation</h6>
+                            <p class="text-muted small mb-3">Simulate an online payment gateway API integration. Funds will be recorded directly into the database.</p>
+                            
+                            <div class="mb-2">
+                                <label class="form-label small">Dummy Card Number</label>
+                                <input type="text" class="form-control form-control-sm" placeholder="4111 2222 3333 4444" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label small">Expiry Date</label>
+                                    <input type="text" class="form-control form-control-sm" placeholder="MM/YY" />
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label small">CVV</label>
+                                    <input type="password" class="form-control form-control-sm" placeholder="123" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Conditional Food Specifics Section (Handled via JS) -->
+                        <div id="foodSpecificSection" class="conditional-section" style="display: none;">
+                            <h6 class="text-primary fw-bold mb-2"><i class="bi bi-basket"></i> Food Category Details</h6>
+                            <label class="form-label small">Specify Food Items (e.g., Non-perishables, Canned Goods, Bottled Water)</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter food descriptions" />
+                        </div>
+
+                        <!-- 3. Conditional Logistics / Delivery vs Collection Section (Handled via JS) -->
+                        <div id="logisticsSection" class="conditional-section" style="display: none;">
+                            <h6 class="text-primary fw-bold mb-2"><i class="bi bi-truck"></i> Fulfillment Method</h6>
+                            <label class="form-label small">How would you like to transfer these resources?</label>
+                            <select class="form-select form-select-sm">
+                                <option value="Delivery">I will arrange delivery to the facility</option>
+                                <option value="Collection">Request foundation pickup / collection</option>
+                            </select>
+                        </div>
+
+                        <!-- Disaster / Incident -->
+                        <div class="mb-3 mt-3">
+                            <label asp-for="DisasterLocation" class="form-label fw-semibold">Target Disaster / Incident</label>
+                            <input asp-for="DisasterLocation" class="form-control" placeholder="e.g., Flood, Wildfire, Drought Relief" />
+                            <span asp-validation-for="DisasterLocation" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Date Donated -->
+                        <div class="mb-4">
+                            <label asp-for="DonationDate" class="form-label fw-semibold">Date Donated</label>
+                            <input asp-for="DonationDate" class="form-control" type="datetime-local" />
+                            <span asp-validation-for="DonationDate" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+                            <button type="submit" class="btn btn-primary-custom px-4">Submit & Save Record</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <!-- Input group for Donation Type (e.g., Food, Money) -->
-            <div class="form-group">
-                <label asp-for="DonationType" class="control-label"></label>
-                <input asp-for="DonationType" class="form-control" />
-                <span asp-validation-for="DonationType" class="text-danger"></span>
-            </div>
-
-            <!-- Input group for Amount or Quantity -->
-            <div class="form-group">
-                <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" />
-                <span asp-validation-for="Amount" class="text-danger"></span>
-            </div>
-
-            <!-- Input group for Disaster Location/Name -->
-            <div class="form-group">
-                <label asp-for="DisasterLocation" class="control-label"></label>
-                <input asp-for="DisasterLocation" class="form-control" />
-                <span asp-validation-for="DisasterLocation" class="text-danger"></span>
-            </div>
-
-            <!-- Input group for Donation Date -->
-            <div class="form-group">
-                <label asp-for="DonationDate" class="control-label"></label>
-                <input asp-for="DonationDate" class="form-control" />
-                <span asp-validation-for="DonationDate" class="text-danger"></span>
-            </div>
-
-            <!-- Submit button that triggers the POST request to save the new record to SSMS -->
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <!-- Hyperlink that returns the user back to the Index list page without saving -->
-    <a asp-action="Index">Back to List</a>
-</div>
+<!-- Link our dedicated JavaScript file at the bottom of the view -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/create-donation.js"></script>
+}

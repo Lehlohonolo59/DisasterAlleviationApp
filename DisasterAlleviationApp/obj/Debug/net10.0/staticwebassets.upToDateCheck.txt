@@ -1,8 +1,10 @@
+wwwroot\css\create-donation.css
 wwwroot\css\donations.css
 wwwroot\css\home.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\DAFlogo-removebg-preview.png
+wwwroot\js\create-donation.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -64,6 +66,8 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\css\donations.css
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\css\home.css
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\css\site.css
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\favicon.ico
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\js\site.js
@@ -126,5 +130,5 @@ C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroo
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\lib\jquery\LICENSE.txt
-C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\css\home.css
-C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\css\donations.css
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\css\create-donation.css
+C:\Users\Lehlo\source\repos\DisasterAlleviationApp\DisasterAlleviationApp\wwwroot\js\create-donation.js
